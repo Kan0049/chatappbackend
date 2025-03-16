@@ -12,12 +12,15 @@ const server = http.createServer(app);
 
 const io = socketio(server, {
   cors: {
-    origin: '*', // Allow all origins for testing (update to specific domain after hosting)
+    origin: 'https://chatapp-frontend-sandy-nine.vercel.app', // Allow your frontend domain
     methods: ['GET', 'POST'],
   },
 });
 
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: 'https://chatapp-frontend-sandy-nine.vercel.app', // Allow your frontend domain
+  methods: ['GET', 'POST'],
+}));
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://kan0000413:ChatApp2025@cluster0.kpn5l.mongodb.net/chatapp?retryWrites=true&w=majority&appName=Cluster0', {
